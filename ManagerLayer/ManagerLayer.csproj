@@ -46,5 +46,15 @@
     <Compile Include="Managers\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ModelsLayer\ModelsLayer.csproj">
+      <Project>{89db00be-0ed6-4923-a5de-23bdd6e31193}</Project>
+      <Name>ModelsLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepositoryLayer\RepositoryLayer.csproj">
+      <Project>{bfc372bc-c099-4c73-b4ad-19d8176bfa82}</Project>
+      <Name>RepositoryLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

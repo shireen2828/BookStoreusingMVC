@@ -182,6 +182,16 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ManagerLayer\ManagerLayer.csproj">
+      <Project>{3f9c4a40-c937-464b-b52b-39036ad6766f}</Project>
+      <Name>ManagerLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModelsLayer\ModelsLayer.csproj">
+      <Project>{89db00be-0ed6-4923-a5de-23bdd6e31193}</Project>
+      <Name>ModelsLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
