@@ -29,13 +29,13 @@ namespace BookstoreProject.Controllers
             try
             {
                 var Result = this.userManager.RegisterUser(register);
-                ViewBag.Message = "User registered successfully";
-                // return View();
-                return RedirectToAction("Login");
+                return ViewBag.Alertmsg = "User added successfully";
+                
+                
             }
             catch (Exception)
             {
-                return ViewBag.Message = "User registration unsuccessfull";
+                return ViewBag.Alertmsg = "User failed to add";
             }
         }
     }

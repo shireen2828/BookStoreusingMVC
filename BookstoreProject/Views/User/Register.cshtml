@@ -4,12 +4,17 @@
     ViewBag.Title = "Register";
 }
 
-<h2>Register</h2>
+<div class="nav-login">
+    <h2 class="nav-book">Bookstore</h2>
+</div>
+<h2 class="login">Register</h2>
 
-@using (Html.BeginForm()) 
+
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>RegisterModel</h4>
         <hr />
