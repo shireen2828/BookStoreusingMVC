@@ -17,7 +17,7 @@ namespace ManagerLayer.Managers
             this.repository = repository;
         }
 
-        public bool RegisterUser(RegisterModel register)
+        public RegisterModel RegisterUser(RegisterModel register)
         {
             return this.repository.RegisterUser(register);
         }

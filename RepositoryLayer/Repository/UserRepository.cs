@@ -28,7 +28,7 @@ namespace RepositoryLayer.Repository
             con = new SqlConnection(connectionString);
         }
 
-        public bool RegisterUser(RegisterModel register)
+        public RegisterModel RegisterUser(RegisterModel register)
         {
             try
             {
@@ -45,16 +45,20 @@ namespace RepositoryLayer.Repository
                 con.Close();
                 if(i >= 1)
                 {
-                    return true;
+                    return register;
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
+            }
+            finally
+            {
+                con.Close();
             }
         }
     }
