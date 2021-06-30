@@ -9,6 +9,7 @@ namespace ManagerLayer.Interfaces
 {
     public interface IBooksManager
     {
-         BooksModel Addbooks(BooksModel books);
+        List<BooksModel> GetBooks();
+        BooksModel Addbooks(BooksModel books);
     }
 }

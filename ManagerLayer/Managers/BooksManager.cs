@@ -17,6 +17,10 @@ namespace ManagerLayer.Managers
             this.booksRepository = booksRepository;
         }
 
+        public List<BooksModel> GetBooks()
+        {
+            return this.booksRepository.GetBooks();
+        }
         public BooksModel Addbooks(BooksModel books)
         {
             return this.booksRepository.Addbooks(books);

@@ -21,6 +21,45 @@ namespace RepositoryLayer.Repository
             con = new SqlConnection(connectionString);
         }
 
+        public List<BooksModel> GetBooks()
+        {
+            try
+            {
+                connection();
+                List<BooksModel> books = new List<BooksModel>();
+                SqlCommand command = new SqlCommand("sp_GetBooks", con);
+                command.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter sqlData = new SqlDataAdapter(command);
+                DataTable table = new DataTable();
+                con.Open();
+                sqlData.Fill(table);
+                con.Close();
+
+                foreach (DataRow Row in table.Rows)
+                {
+                    books.Add(new BooksModel
+                    {
+                        BookId = Convert.ToInt32(Row["BookId"]),
+                        BookName = Convert.ToString(Row["BookName"]),
+                        Author = Convert.ToString(Row["Author"]),
+                        Details = Convert.ToString(Row["Details"]),
+                        Price = Convert.ToInt32(Row["Price"]),
+                        Quantity = Convert.ToInt32(Row["Quantity"]),
+                        Image = Convert.ToString(Row["Image"])
+                    });
+                }
+                return books;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
         public BooksModel Addbooks(BooksModel books)
         {
             try

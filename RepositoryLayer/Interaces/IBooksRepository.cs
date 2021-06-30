@@ -9,6 +9,7 @@ namespace RepositoryLayer.Interaces
 {
     public interface IBooksRepository
     {
+        List<BooksModel> GetBooks();
         BooksModel Addbooks(BooksModel books);
     }
 }
