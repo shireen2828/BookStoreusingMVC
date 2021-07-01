@@ -12,3 +12,15 @@ footer {
     color: white;
     margin-bottom: 0px;
 }
+#login_btn {
+    padding-right: 0px;
+    background-color: maroon;
+    border: 0px;
+    color: white;
+}
+#register_btn {
+    padding-left: 0px;
+    background-color: maroon;
+    border: 0px;
+    color: white;
+}
