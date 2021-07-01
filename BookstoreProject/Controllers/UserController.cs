@@ -46,5 +46,22 @@ namespace BookstoreProject.Controllers
             }
 
         }
+
+        [HttpPost]
+        public ActionResult Login(LoginModel login)
+        {
+            try
+            {
+                var result = this.userManager.loginUser(login);
+                ViewBag.Message = "logged in successfully";
+                return View();
+                //return RedirectToAction("GetBooks");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Message = ex;
+                return View();
+            }
+        }
     }
 }

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ManagerLayer.Interfaces
 {
-    public interface IUserManager
+    public interface ICartManager
     {
-        RegisterModel RegisterUser(RegisterModel register);
-         LoginModel loginUser(LoginModel login);
+        List<GetCartModel> Getcart();
+        CartModel AddToCart(CartModel cart);
     }
 }

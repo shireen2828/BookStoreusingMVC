@@ -14,9 +14,12 @@ namespace BookstoreProject
         {
 			var container = new UnityContainer();
             container.RegisterType<IUserManager, UserManager>();
-            container.RegisterType<IUserRepository, UserRepository>();
             container.RegisterType<IBooksManager, BooksManager>();
-            container.RegisterType<IBooksRepository, BooksRepository>();
+            container.RegisterType<ICartManager, CartManager>();
+            container.RegisterType<IUserRepository, UserRepository>();
+            container.RegisterType<IBooksRepository, BooksRepository>();            
+            container.RegisterType<ICartRepository, CartRepository>();
+            
 
             // register all your components with the container here
             // it is NOT necessary to register your controllers

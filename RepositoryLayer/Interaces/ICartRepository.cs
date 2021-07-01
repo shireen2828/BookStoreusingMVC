@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace RepositoryLayer.Interaces
 {
-    public interface IUserRepository
+    public interface ICartRepository
     {
-         RegisterModel RegisterUser(RegisterModel register);
-         LoginModel loginUser(LoginModel login);
+        List<GetCartModel> Getcart();
+        CartModel AddToCart(CartModel cart);
     }
 }

@@ -21,5 +21,10 @@ namespace ManagerLayer.Managers
         {
             return this.repository.RegisterUser(register);
         }
+
+        public LoginModel loginUser(LoginModel login)
+        {
+            return this.repository.loginUser(login);
+        }
     }
 }
