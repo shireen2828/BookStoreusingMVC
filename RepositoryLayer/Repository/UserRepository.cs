@@ -15,12 +15,12 @@ namespace RepositoryLayer.Repository
     public class UserRepository : IUserRepository
     {
         private SqlConnection con;
-        private readonly IConfiguration configuration;
+        //private IConfiguration config;
 
-        public UserRepository(IConfiguration configuration)
-        {
-            this.configuration = configuration;
-        }
+        //public UserRepository(IConfiguration configuration)
+        //{
+        //    this.config = configuration;
+        //}
 
         private void Connection()
         {
@@ -36,7 +36,7 @@ namespace RepositoryLayer.Repository
                 SqlCommand command = new SqlCommand("sp_userRegister", con);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@FirstName", register.FirstName);
-                command.Parameters.AddWithValue("@LastNme", register.LastName);
+                command.Parameters.AddWithValue("@LastName", register.LastName);
                 command.Parameters.AddWithValue("@Email", register.Email);
                 command.Parameters.AddWithValue("@Password", register.Password);
 

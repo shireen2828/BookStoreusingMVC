@@ -43,7 +43,7 @@ namespace RepositoryLayer.Repository
                         BookName = Convert.ToString(Row["BookName"]),
                         Author = Convert.ToString(Row["Author"]),
                         Details = Convert.ToString(Row["Details"]),
-                        Price = Convert.ToInt32(Row["Price"]),
+                        Price = Convert.ToDouble(Row["Price"]),
                         Quantity = Convert.ToInt32(Row["Quantity"]),
                         Image = Convert.ToString(Row["Image"])
                     });

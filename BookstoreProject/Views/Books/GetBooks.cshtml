@@ -1,63 +1,40 @@
 ﻿@model IEnumerable<ModelsLayer.BooksModel>
 
-@{
-    ViewBag.Title = "GetBooks";
-}
 
-<h2>GetBooks</h2>
+    <h2 class="title" style="font-weight:bold;margin-left: 5%;">Books</h2>
+    <div class="displaycontainer" style="display: flex; flex-wrap: wrap; width: 90%; margin-left: 35px;">
+        @foreach (var items in Model)
+        {
+            <div class="card card1" style="width: 21rem; margin: 20px; border: 1px solid rgba(0,0,0,.125); border-radius: .25rem;">
+                <div class="card-body" style="padding:0px;">
+                    <div style="background-color: #f2f1f1;">
+                        <img src="~/images/book1.jpg" class="card-img-top cardimg" alt="..." style="width: 90px; position: relative; top: 0px; padding-top: 10px; left: 58px; padding-bottom: 10px; height: 130px;">
+                    </div>
+                    <div style="padding:1rem;">
+                        <div class="BookName" style="font-weight: bold;">@items.BookName</div>
+                        <div class="Authors" style="color: lightgray;font-size: small;">
+                            by
+                            <label>@items.Author</label>
+                        </div>
+                        <div class="rate" style="background-color: darkgray; width: 25px; height: 20px;">4.5</div>
+                        <div class="Quantity">@items.Quantity</div>
+                        <div class="Price" style="margin-top: 1px; margin-bottom: 8px; font-weight: bold;">Rs.@items.Price</div>
+                        <div class="displaybutton">
+                            <input id="addtobag_btn" type="button" value="Add To Bag" style="background-color: maroon; color: white; width: 55%; border: 0px; padding: 4px; border-radius: 3px;"/>
+                            <input id="wishlist_btn" type="button" value="Wishlist" style="width: 40%; padding: 3px; margin-left: 4px;" />
+                            @*<button type="button" class="btn btn-danger">Add To Bag</button>*@
+                            @*<asp:Button ID="addtobag" runat="server" Text="Add To Bag" CssClass="addbutton" CommandName="visibility" />
+                            <asp:Button ID="wishlist" runat="server" Text="Wishlist" />
+                            <asp:Button ID="addedtobag" CssClass="addedtobag_btn" runat="server" Text="Added to Bag" Visible="false" />*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+               
+                
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.BookName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Author)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Details)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Image)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Quantity)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.BookName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Author)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Details)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Image)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BookId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BookId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BookId })
-        </td>
-    </tr>
-}
-
-</table>
+                @*<div>
+                    @Html.ActionLink("Back to List", "Index")
+                </div>*@

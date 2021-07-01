@@ -9,8 +9,6 @@ namespace ModelsLayer
 {
     public class RegisterModel
     {
-        [Key]
-        public int UserId { get; set; }
         [Required]
         public string FirstName { get; set; }
         [Required]

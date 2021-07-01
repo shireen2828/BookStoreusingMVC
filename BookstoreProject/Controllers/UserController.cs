@@ -16,10 +16,7 @@ namespace BookstoreProject.Controllers
         {
             this.userManager = userManager;
         }
-        public UserController()
-        {
-
-        }
+       
         // GET: User
         public ActionResult Register()
         {
@@ -38,13 +35,13 @@ namespace BookstoreProject.Controllers
             {
                 var Result = this.userManager.RegisterUser(register);
                 ViewBag.Message = "User added successfully";
-                return View();
+                return RedirectToAction("Login");
 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                ViewBag.Message = "User failed to add";
+                ViewBag.Message = ex;
                 return View();
             }
 
