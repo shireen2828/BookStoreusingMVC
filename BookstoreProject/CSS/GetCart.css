@@ -1,0 +1,52 @@
+﻿body {
+}
+.getmain {
+    border: 1px solid;
+    padding: 25px;
+    width: 75%;
+    border-color: lightgray;
+}
+.getcart {
+    top: -130px;
+    position: relative;
+    left: 23%;
+}
+.placeorder {
+    left: 70%;
+    border: 0px;
+    border-radius: 3px;
+    padding: 4px;
+    width: 22%;
+    position: relative;
+    bottom: 80px;
+    height: 30px;
+    width: 125px;
+    color: white;
+    background-color: royalblue;
+    padding: 0px;
+}
+.getcontainer {
+    border: 1px solid;
+    border-color: lightgray;
+    margin-top: 20px;
+    padding: 15px;
+    width: 75%;
+}
+.addresstext {
+    max-width: 46%;
+    width: 57%;
+    height: 65px;
+    position: relative;
+    top: 30px;
+}
+.continue {
+    height: 30px;
+    width: 125px;
+    color: white;
+    background-color: royalblue;
+    padding: 0px;
+    position: relative;
+    left: 67%;
+    border: 0px;
+    border-radius: 3px;
+}

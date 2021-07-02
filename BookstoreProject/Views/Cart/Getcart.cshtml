@@ -1,9 +1,12 @@
-﻿@model IEnumerable <ModelsLayer.GetCartModel>
+﻿@model IEnumerable<ModelsLayer.GetCartModel>
+    <link rel="stylesheet" type="text/css" href="~/CSS/GetCart.css" />
 
 
-<div class="getmain" style="border:1px solid;padding:25px;width: 75%; border-color: lightgray;">
+<div class="getmain">
     <div>
-        <h4 class="title1" style="margin-bottom: 30px;">My cart()</h4>
+        <h4 class="title1" style="margin-bottom: 30px;font-weight:600;">
+            My cart (@Model.Sum(a => a.Quantity))
+        </h4>
         <img src="~/images/book1.jpg" class="getimg" alt="..." style="width: 90px;">
     </div>
     @foreach (var items in Model)
@@ -21,12 +24,53 @@
 
     }
     <div class="btn_checkout">
-        <input id="Placeorder_btn" type="button" value="PLACE ORDER" style="position: relative; left: 75%; background-color: royalblue; color: white; border: 0px; border-radius: 3px; padding: 4px; width: 20%;" />
+        <input id="Placeorder_btn" type="button" value="PLACE ORDER" class="placeorder" />
     </div>
 </div>
-    
+<div class="getcontainer">
+    <h4 class="title2" style="color:dimgrey;">Customer Details</h4>
+    <div style="position: relative;top: 10px;">
+        <input id="Text1" type="text" placeholder="Name" style="height:40px;"  />
+        <input id="Text1" type="text" placeholder="Phone number" style="height:40px;margin-left:10px;" />
+    </div>
+    <div style="position: relative;top: 20px;">
+        <input id="Text1" type="text" placeholder="Pincode" style="height:40px;" />
+        <input id="Text1" type="text" placeholder="Locality" style="height:40px;margin-left:10px;" />
+    </div>
+    <div class="address">
+        <input id="Text1" type="text" placeholder="Address" class="addresstext" />
+    </div>
+    <div style="position: relative;top: 40px;">
+        <input id="Text1" type="text" placeholder="city/town" style="height:40px;" />
+        <input id="Text1" type="text" placeholder="Landmark" style="height:40px;margin-left:10px;" />
+    </div>
+    <div style="position: relative;top: 45px;">Type</div>
+    <div class="form-check" style="position: relative;top: 45px;">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+            Home
+        </label>
+        
+    </div>
+    <div class="form-check" style="position: relative;left: 120px;top: 20px;">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+        <label class="form-check-label" for="flexRadioDefault2">
+            Work
+        </label>
+    </div>
+    <div class="form-check" style="position: relative;left: 235px;top: -6px;">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+        <label class="form-check-label" for="flexRadioDefault3">
+            Other
+        </label>
+    </div>
+    <div class="btncontinue1">
+        <input id="continue_btn" type="button" value="CONTINUE" class="continue" />
+    </div>
+</div>
+
 
 
 @*<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>*@
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@

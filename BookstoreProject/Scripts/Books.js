@@ -25,7 +25,7 @@ function AddToCart(BookId) {
             AddToWishlistBtn.style.display = "none";
 
             var AddedToCartButton = document.getElementById(addedtobag);
-            AddedToCartButton.style.display = "block"
+            AddedToCartButton.style.display = "block";
 
         },
         error: function () {
