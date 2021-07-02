@@ -33,12 +33,13 @@ namespace RepositoryLayer.Repository
             try
             {
                 Connection();
+                string password = EncryptPassword(register.Password);
                 SqlCommand command = new SqlCommand("sp_userRegister", con);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@FirstName", register.FirstName);
                 command.Parameters.AddWithValue("@LastName", register.LastName);
                 command.Parameters.AddWithValue("@Email", register.Email);
-                command.Parameters.AddWithValue("@Password", register.Password);
+                command.Parameters.AddWithValue("@Password", password);
 
                 con.Open();
                 int i = command.ExecuteNonQuery();
@@ -67,10 +68,11 @@ namespace RepositoryLayer.Repository
             try
             {
                 Connection();
+                string password = EncryptPassword(login.Password);
                 SqlCommand command = new SqlCommand("sp_login", con);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@Email", login.Email);
-                command.Parameters.AddWithValue("@Password", login.Password);
+                command.Parameters.AddWithValue("@Password", password);
 
                 con.Open();
                 int i = command.ExecuteNonQuery();
@@ -93,5 +95,20 @@ namespace RepositoryLayer.Repository
                 con.Close();
             }
         }
+
+        public static string EncryptPassword(string password)
+        {
+            try
+            {
+                byte[] encryptData = new byte[password.Length];
+                encryptData = System.Text.Encoding.UTF8.GetBytes(password);
+                string encodedData = Convert.ToBase64String(encryptData);
+                return encodedData;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error in base64Encode" + ex.Message);
+            }
         }
+    }
     }
