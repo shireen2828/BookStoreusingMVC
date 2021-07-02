@@ -1,4 +1,5 @@
 ﻿using ManagerLayer.Interfaces;
+using ModelsLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,27 @@ namespace BookstoreProject.Controllers
                 throw ex;
             }
             
+        }
+
+        [HttpPost]
+        public ActionResult AddToCart(CartModel cart)
+        {
+            try
+            {
+                var result = this.cartManager.AddToCart(cart);
+                if (result != null)
+                {
+                    return Json(new { status = true, Message = "added", Data = result });
+                }
+                else
+                {
+                    return Json(new { status = false, Message = "not added", Data = result });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

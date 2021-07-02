@@ -54,8 +54,8 @@ namespace BookstoreProject.Controllers
             {
                 var result = this.userManager.loginUser(login);
                 ViewBag.Message = "logged in successfully";
-                return View();
-                //return RedirectToAction("GetBooks");
+                //return View();
+                return RedirectToAction("GetBooks", "Books");
 
             }
             catch (Exception ex)

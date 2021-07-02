@@ -16,7 +16,17 @@ namespace BookstoreProject
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "User", action = "Register", id = UrlParameter.Optional }
+            );
+            routes.MapRoute(
+                name: "Default1",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Books", action = "GetBooks", id = UrlParameter.Optional }
+            );
+            routes.MapRoute(
+                name: "Default2",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Cart", action = "GetCart", id = UrlParameter.Optional }
             );
         }
     }

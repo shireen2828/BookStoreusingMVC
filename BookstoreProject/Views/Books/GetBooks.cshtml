@@ -1,7 +1,10 @@
 ﻿@model IEnumerable<ModelsLayer.BooksModel>
+    @Scripts.Render("~/bundles/Bookstore/Books")
+<script type="text/javascript" src="~/Scripts/Bookstore/Books.js"></script>
 
-
-    <h2 class="title" style="font-weight:bold;margin-left: 5%;">Books</h2>
+    <h2 class="title" style="font-weight:bold;margin-left: 5%;">Books
+        <span style="color:lightgray;font-size: large;"> (@Model.Sum(a => a.Quantity))</span>
+    </h2>
     <div class="displaycontainer" style="display: flex; flex-wrap: wrap; width: 90%; margin-left: 35px;">
         @foreach (var items in Model)
         {
@@ -20,18 +23,17 @@
                         <div class="Quantity">@items.Quantity</div>
                         <div class="Price" style="margin-top: 1px; margin-bottom: 8px; font-weight: bold;">Rs.@items.Price</div>
                         <div class="displaybutton">
-                            <input id="addtobag_btn" type="button" value="Add To Bag" style="background-color: maroon; color: white; width: 55%; border: 0px; padding: 4px; border-radius: 3px;"/>
+                            <input  type="button" value="Add To Bag" id="addtobag_btn-@items.BookId" onclick="AddToCart(@items.BookId)" style="background-color: maroon; color: white; width: 55%; border: 0px; padding: 4px; border-radius: 3px;"/>
                             <input id="wishlist_btn" type="button" value="Wishlist" style="width: 40%; padding: 3px; margin-left: 4px;" />
-                            @*<button type="button" class="btn btn-danger">Add To Bag</button>*@
-                            @*<asp:Button ID="addtobag" runat="server" Text="Add To Bag" CssClass="addbutton" CommandName="visibility" />
-                            <asp:Button ID="wishlist" runat="server" Text="Wishlist" />
-                            <asp:Button ID="addedtobag" CssClass="addedtobag_btn" runat="server" Text="Added to Bag" Visible="false" />*@
                         </div>
                     </div>
                 </div>
             </div>
         }
     </div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
                
                 
 
