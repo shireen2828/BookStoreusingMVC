@@ -69,6 +69,29 @@
     </div>
 </div>
 
+<div class="getorder">
+
+    <div>
+        <h4 class="title3" style="color:dimgrey;">Order summery</h4>
+    </div>
+    <div class="text">
+        @foreach (var items in Model)
+        {
+            <div class="img">
+                <div class="bookimg">@items.Image</div>
+            </div>
+            <div class="Book">@items.BookName</div>
+            <div class="authornme">by @items.Author</div>
+            <div class="bookprice">Rs.@items.Price</div>
+        }
+
+    </div>
+    <div class="btn_checkout">
+        <input id="checkout_btn" class="checkout" type="button" value="CHECKOUT" />
+    </div>
+
+</div>
+
 
 
 @*<div>

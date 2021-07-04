@@ -50,3 +50,21 @@
     border: 0px;
     border-radius: 3px;
 }
+.checkout {
+    position: relative;
+    left: 67%;
+    height: 30px;
+    width: 125px;
+    color: white;
+    background-color: royalblue;
+    padding: 0px;
+    border: 0px;
+    border-radius: 3px;
+}
+.getorder {
+    border: 1px solid;
+    padding: 25px;
+    width: 75%;
+    border-color: lightgray;
+    margin-top:20px;
+}
