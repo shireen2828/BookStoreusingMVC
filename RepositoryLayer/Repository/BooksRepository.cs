@@ -62,22 +62,30 @@ namespace RepositoryLayer.Repository
 
         public bool UploadImage(int BookId, string addImage)
         {
-            connection();
-            SqlCommand command = new SqlCommand("sp_AddImage", con);
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@BookId", BookId);
-            command.Parameters.AddWithValue("@Image", addImage);
-            con.Open();
-            int i = command.ExecuteNonQuery();
-            con.Close();
-            if (i >= 1)
+            try
             {
-                return true;
+                connection();
+                SqlCommand command = new SqlCommand("sp_AddImage", con);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@BookId", BookId);
+                command.Parameters.AddWithValue("@Image", addImage);
+                con.Open();
+                int i = command.ExecuteNonQuery();
+                con.Close();
+                if (i <= 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
+            catch(Exception ex)
             {
-                return false;
+                throw ex;
             }
+            
         }
 
         public BooksModel Addbooks(BooksModel books)
