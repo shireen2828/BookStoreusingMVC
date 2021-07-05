@@ -10,6 +10,7 @@ namespace RepositoryLayer.Interaces
     public interface IBooksRepository
     {
         List<BooksModel> GetBooks();
+        bool UploadImage(int BookId, string addImage);
         BooksModel Addbooks(BooksModel books);
     }
 }

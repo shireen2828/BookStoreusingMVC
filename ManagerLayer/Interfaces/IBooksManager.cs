@@ -10,6 +10,7 @@ namespace ManagerLayer.Interfaces
     public interface IBooksManager
     {
         List<BooksModel> GetBooks();
+        bool UploadImage(int BookId, string addImage);
         BooksModel Addbooks(BooksModel books);
     }
 }

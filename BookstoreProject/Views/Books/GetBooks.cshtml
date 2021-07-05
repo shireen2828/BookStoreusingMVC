@@ -26,16 +26,16 @@
                         <div class="displaybutton">
                             <input  type="button" value="Add To Bag" class="addtobag" id="addtobag_btn-@items.BookId" onclick="AddToCart(@items.BookId)" />
                             <input id="wishlist_btn-" type="button" value="Wishlist" class="wishlist" />
-                            <input  type="button" value="Added To Bag" id="addedtobag_btn-@items.BookId" class="addedtobag"  />
+                            <input  type="button" value="Added To Bag"  class="addedtobag" id="addedtobag_btn-@items.BookId" style="display:none;"  />
                         </div>
                     </div>
                 </div>
             </div>
         }
     </div>
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        }
                
                 
 

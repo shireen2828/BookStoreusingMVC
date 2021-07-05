@@ -1,6 +1,8 @@
 ﻿function AddToCart(BookId) {
 
-    var addtobag = "addtobag_btn-".concat(BookId);
+    var addtobagId = "addtobag_btn-".concat(BookId);
+    var addtowishlistId = "wishlist_btn-".concat(BookId);
+    var addedtobag = "addedtobag_btn-".concat(BookId); 
 
     var requestObject = {};
     requestObject.UserId = 1;
@@ -14,8 +16,14 @@
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         success: function () {
-            var AddTocartButton = document.getElementById(addtobag);
+            var AddTocartButton = document.getElementById(addtobagId);
             AddTocartButton.style.display = "none";
+
+            //var AddToWishlistBtn = document.getElementById(addtowishlistId);
+            //AddToWishlistBtn.style.display = "none";
+
+            var Added = document.getElementById(addedtobag);
+            Added.style.display = "block";
         },
         error: function () {
             alert("error");

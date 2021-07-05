@@ -27,7 +27,8 @@ namespace BookstoreProject
                       "~/Content/site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/Bookstore").Include(
-                "~/Scripts/Bookstore/Books.js"));
+                "~/Scripts/Bookstore/Books.js",
+            "~/Scripts/Bookstore/Cart.js"));
         }
     }
 }

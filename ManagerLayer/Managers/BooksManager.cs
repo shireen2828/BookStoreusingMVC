@@ -21,6 +21,11 @@ namespace ManagerLayer.Managers
         {
             return this.booksRepository.GetBooks();
         }
+
+        public bool UploadImage(int BookId, string addImage)
+        {
+            return this.booksRepository.UploadImage(BookId, addImage);
+        }
         public BooksModel Addbooks(BooksModel books)
         {
             return this.booksRepository.Addbooks(books);
