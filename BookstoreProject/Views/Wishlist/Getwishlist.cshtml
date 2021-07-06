@@ -1,0 +1,34 @@
+﻿@model IEnumerable <ModelsLayer.GetWishlistModel>
+<link rel="stylesheet" type="text/css" href="~/CSS/GetCart.css" />
+<script type="text/javascript" src="~/Scripts/Bookstore/Cart.js"></script>
+
+
+<div class="getmain">
+    <div>
+        <h4 class="title1" style="margin-bottom: 30px;font-weight:600;">
+            My Wishlist (@Model.Sum(a => a.Quantity))
+        </h4>
+        <img src="~/images/book1.jpg" class="getimg" alt="..." style="width: 90px;">
+    </div>
+    @foreach (var items in Model)
+    {
+        <div class="container_get">
+            <div class="image">
+
+            </div>
+            <div class="getcart">
+                <div class="BookName">@items.BookName</div>
+                <div class="Author">by @items.Author</div>
+                <div class="Price">Rs. @items.Price</div>
+            </div>
+        </div>
+
+    }
+    <div class="btn_checkout">
+        <input id="Placeorder_btn" type="button" value="REMOVE" class="placeorder" />
+    </div>
+</div>
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@

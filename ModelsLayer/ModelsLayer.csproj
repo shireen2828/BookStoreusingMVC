@@ -45,9 +45,11 @@
     <Compile Include="BooksModel.cs" />
     <Compile Include="CartModel.cs" />
     <Compile Include="GetCartModel.cs" />
+    <Compile Include="GetWishlistModel.cs" />
     <Compile Include="LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterModel.cs" />
+    <Compile Include="WishlistModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

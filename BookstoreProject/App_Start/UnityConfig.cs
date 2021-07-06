@@ -19,6 +19,8 @@ namespace BookstoreProject
             container.RegisterType<IUserRepository, UserRepository>();
             container.RegisterType<IBooksRepository, BooksRepository>();            
             container.RegisterType<ICartRepository, CartRepository>();
+            container.RegisterType<IWishlistManager, WishlistManager>();
+            container.RegisterType<IWishlistRepository, WishlistRepository>();
             
 
             // register all your components with the container here

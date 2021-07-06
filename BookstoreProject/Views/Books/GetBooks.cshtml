@@ -24,9 +24,11 @@
                         <div class="Quantity">@items.Quantity</div>
                         <div class="Price" style="margin-top: 1px; margin-bottom: 8px; font-weight: bold;">Rs.@items.Price</div>
                         <div class="displaybutton">
-                            <input  type="button" value="Add To Bag" class="addtobag" id="addtobag_btn-@items.BookId" onclick="AddToCart(@items.BookId)" />
-                            <input id="wishlist_btn-" type="button" value="Wishlist" class="wishlist" />
-                            <input  type="button" value="Added To Bag"  class="addedtobag" id="addedtobag_btn-@items.BookId" style="display:none;"  />
+                            <input type="button" value="Add To Bag" class="addtobag" id="addtobag_btn-@items.BookId" onclick="AddToCart(@items.BookId)" />
+                            <input type="button" value="Wishlist" class="wishlist"  id="wishlist_btn-@items.BookId" onclick="AddToWishlist(@items.BookId)" />
+                            <input type="button" value="Added To Bag" class="addedtobag" id="addedtobag_btn-@items.BookId" style="display:none;" />
+                            <input type="button" value="Added To Wishlist" class="addedtowishlist" id="addedtowishlist_btn-@items.BookId" style="display:none;" />
+
                         </div>
                     </div>
                 </div>
