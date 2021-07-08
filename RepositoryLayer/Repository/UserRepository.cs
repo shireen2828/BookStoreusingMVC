@@ -6,7 +6,10 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,12 +18,12 @@ namespace RepositoryLayer.Repository
     public class UserRepository : IUserRepository
     {
         private SqlConnection con;
-        //private IConfiguration config;
+        private IConfiguration config;
 
-        //public UserRepository(IConfiguration configuration)
-        //{
-        //    this.config = configuration;
-        //}
+        public UserRepository(IConfiguration configuration)
+        {
+            this.config = configuration;
+        }
 
         private void Connection()
         {
@@ -110,5 +113,29 @@ namespace RepositoryLayer.Repository
                 throw new Exception("Error in base64Encode" + ex.Message);
             }
         }
+
+        //public string GenerateToken(string Email)
+        //{
+        //    try
+        //    {
+        //        var tokenDescriptor = new SecurityTokenDescriptor
+        //        {
+        //            Subject = new ClaimsIdentity(new Claim[]
+        //                {
+        //                    new Claim("Email", Email)
+        //                }),
+        //            Expires = DateTime.UtcNow.AddDays(1),
+        //            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(this.configuration["Jwt:SecureKey"])), SecurityAlgorithms.HmacSha256)
+        //        };
+        //        var tokenHandler = new JwtSecurityTokenHandler();
+        //        var securityToken = tokenHandler.CreateToken(tokenDescriptor);
+        //        var token = tokenHandler.WriteToken(securityToken);
+        //        return token;
+        //    }
+        //    catch (ArgumentNullException ex)
+        //    {
+        //        throw new ArgumentNullException(ex.Message);
+        //    }
+        //}
     }
     }

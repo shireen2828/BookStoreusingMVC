@@ -1,0 +1,42 @@
+﻿body {
+}
+.order {
+    text-align: center;
+    margin-top: 200px;
+}
+
+.info {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.orderhead {
+    display: flex;
+    justify-content: space-around;
+}
+
+.ordermain {
+    border: 1px solid;
+    width: 50%;
+    /*margin-left: 365px;*/
+}
+
+.ordercontainer {
+    display: flex;
+    justify-content: center;
+}
+
+.buttonmain {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.orderbtn {
+    color: white;
+    background-color: royalblue;
+    border: 0px;
+    border-radius: 3px;
+    padding-right: 15px;
+    padding-left: 15px;
+}

@@ -8,13 +8,13 @@
         <h4 class="title1" style="margin-bottom: 30px;font-weight:600;">
             My cart (@Model.Sum(a => a.Quantity))
         </h4>
-        <img src="~/images/book1.jpg" class="getimg" alt="..." style="width: 90px;">
+        
     </div>
     @foreach (var items in Model)
     {
         <div class="container_get">
             <div class="image">
-
+                <img src=@items.Image class="getimg" alt="..." style="width: 90px;height:16vh;">
             </div>
             <div class="getcart">
                 <div class="BookName">@items.BookName</div>
@@ -81,17 +81,19 @@
         <div class="text">
             @foreach (var items in Model)
             {
-                <div class="img">
-                    <div class="bookimg">@items.Image</div>
-                </div>
+            <div class="image">
+                <img src=@items.Image class="getimg" alt="..." style="width: 90px; height: 16vh;">
+            </div>
+            <div class="getcart">
                 <div class="Book">@items.BookName</div>
                 <div class="authornme">by @items.Author</div>
                 <div class="bookprice">Rs.@items.Price</div>
+            </div>
             }
 
         </div>
         <div class="btn_checkout">
-            <input id="checkout_btn" class="checkout" type="button" value="CHECKOUT" />
+            <input id="checkout_btn" class="checkout" type="button" value="CHECKOUT" onclick="@("window.location.href='" + Url.Action("Order", "Orderplaced") + "'");" />
         </div>
     </div>
 </div>

@@ -1,0 +1,35 @@
+﻿
+<link rel="stylesheet" type="text/css" href="~/CSS/Order.css" />
+@{
+    ViewBag.Title = "Order";
+}
+
+<h4 class="order">Order Placed Successfully</h4>
+<p class="info">hurray!!! your order is confirmed<br />the order id is #123456 save the order id for<br /> further communication..</p>
+<div>
+    <div class="row mb-3">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <table class="table table-bordered" style="margin-bottom: 20px; position: relative; left: 25%;width:0px;">
+                <thead class="table-light">
+                    <tr>
+                        <th style="text-align:center;">Email us</th>
+                        <th style="text-align:center;">Contact us</th>
+                        <th style="text-align:center;">Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>admin@bookstore.com</td>
+                        <td>+919874521635</td>
+                        <td>14th main, 2nd cross banglore 560068</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="buttonmain">
+        <input id="Shopping" class="orderbtn btn btn-primary" type="button" value="CONTINUE SHOPPING" onclick="@("window.location.href='" + Url.Action("GetBooks", "Books") + "'");" />
+    </div>
+</div>
+

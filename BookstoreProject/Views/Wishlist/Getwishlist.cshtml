@@ -8,20 +8,19 @@
         <h4 class="title1" style="margin-bottom: 30px;font-weight:600;">
             My Wishlist (@Model.Sum(a => a.Quantity))
         </h4>
-        <img src="~/images/book1.jpg" class="getimg" alt="..." style="width: 90px;">
     </div>
     @foreach (var items in Model)
     {
-        <div class="container_get">
-            <div class="image">
-
-            </div>
-            <div class="getcart">
-                <div class="BookName">@items.BookName</div>
-                <div class="Author">by @items.Author</div>
-                <div class="Price">Rs. @items.Price</div>
-            </div>
-        </div>
+<div class="container_get">
+    <div class="image">
+        <img src=@items.Image class="getimg" alt="..." style="width: 90px; height: 16vh;">
+    </div>
+    <div class="getcart">
+        <div class="BookName">@items.BookName</div>
+        <div class="Author">by @items.Author</div>
+        <div class="Price">Rs. @items.Price</div>
+    </div>
+</div>
 
     }
     <div class="btn_checkout">
