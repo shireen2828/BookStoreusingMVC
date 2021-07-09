@@ -10,6 +10,6 @@ namespace ManagerLayer.Interfaces
     public interface IWishlistManager
     {
         List<GetWishlistModel> Getwishlist();
-        WishlistModel AddToWishlist(WishlistModel wishlist);
+        WishlistModel AddToWishlist(WishlistModel wishlist, string Email);
     }
 }

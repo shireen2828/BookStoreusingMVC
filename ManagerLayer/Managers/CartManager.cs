@@ -17,9 +17,9 @@ namespace ManagerLayer.Managers
             this.cartRepository = cartRepository;
         }
 
-        public CartModel AddToCart(CartModel cart)
+        public CartModel AddToCart(CartModel cart, string Email)
         {
-            return this.cartRepository.AddToCart(cart);
+            return this.cartRepository.AddToCart(cart, Email);
         }
 
         public List<GetCartModel> Getcart()

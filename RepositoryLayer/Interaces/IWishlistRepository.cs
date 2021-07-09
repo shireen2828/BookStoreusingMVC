@@ -9,7 +9,7 @@ namespace RepositoryLayer.Interaces
 {
     public interface IWishlistRepository
     {
-        WishlistModel AddToWishlist(WishlistModel wishlist);
+        WishlistModel AddToWishlist(WishlistModel wishlist, string Email);
         List<GetWishlistModel> Getwishlist();
         
     }

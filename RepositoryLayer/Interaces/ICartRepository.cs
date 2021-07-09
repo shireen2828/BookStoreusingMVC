@@ -10,6 +10,6 @@ namespace RepositoryLayer.Interaces
     public interface ICartRepository
     {
         List<GetCartModel> Getcart();
-        CartModel AddToCart(CartModel cart);
+        CartModel AddToCart(CartModel cart, string Email);
     }
 }

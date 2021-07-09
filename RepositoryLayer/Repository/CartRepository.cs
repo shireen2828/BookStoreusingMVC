@@ -21,8 +21,35 @@ namespace RepositoryLayer.Repository
             con = new SqlConnection(connectionString);
         }
 
-        public CartModel AddToCart(CartModel cart)
+        public CartModel AddToCart(CartModel cart, string Email)
         {
+            try
+            {
+                connection();
+                string query = @"select * from UserRegisteration";
+                SqlCommand command1 = new SqlCommand(query, con);
+                con.Open();
+                SqlDataReader dr = command1.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        if (Convert.ToString(dr["Email"]) == Email)
+                        {
+                            cart.UserId = Convert.ToInt32(dr["UserId"]);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+
             try
             {
                 connection();
@@ -31,6 +58,7 @@ namespace RepositoryLayer.Repository
                 command.Parameters.AddWithValue("@BookId", cart.BookId);
                 command.Parameters.AddWithValue("@UserId", cart.UserId);
                 command.Parameters.AddWithValue("@Quantity", cart.Quantity);
+                //command.Parameters.AddWithValue("@Email", Email);
                 con.Open();
                 int i = command.ExecuteNonQuery();
 

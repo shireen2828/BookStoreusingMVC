@@ -89,7 +89,7 @@ namespace BookstoreProject.Controllers
                 return new JsonResult()
                 {
                     JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-                    Data = new { result = "success", Token = tokenString, returnUrl = "https://localhost:44301/Books/GetBooks" }
+                    Data = new { result = "success", Token = tokenString, returnUrl = "https://localhost:44309/Books/GetBooks" }
                 };
                 //return this.View("Login", Tokenname);
                 //RedirectToAction("GetBooks", "Books");

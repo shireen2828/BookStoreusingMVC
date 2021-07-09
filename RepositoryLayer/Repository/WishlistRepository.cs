@@ -21,8 +21,35 @@ namespace RepositoryLayer.Repository
             con = new SqlConnection(connectionString);
         }
 
-        public WishlistModel AddToWishlist(WishlistModel wishlist)
+        public WishlistModel AddToWishlist(WishlistModel wishlist, string Email)
         {
+
+            try
+            {
+                connection();
+                string query = @"select * from UserRegisteration";
+                SqlCommand command1 = new SqlCommand(query, con);
+                con.Open();
+                SqlDataReader dr = command1.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        if (Convert.ToString(dr["Email"]) == Email)
+                        {
+                            wishlist.UserId = Convert.ToInt32(dr["UserId"]);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
             try
             {
                 connection();

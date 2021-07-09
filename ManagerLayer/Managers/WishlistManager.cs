@@ -22,9 +22,9 @@ namespace ManagerLayer.Managers
             return this.wishlistRepository.Getwishlist();
         }
 
-        public WishlistModel AddToWishlist(WishlistModel wishlist)
+        public WishlistModel AddToWishlist(WishlistModel wishlist, string Email)
         {
-            return this.wishlistRepository.AddToWishlist(wishlist);
+            return this.wishlistRepository.AddToWishlist(wishlist, Email);
         }
     }
     
