@@ -52,15 +52,16 @@ namespace BookstoreProject.Controllers
 
         }
 
+        [AllowAnonymous]
         [HttpPost]
-        public ActionResult Login(LoginModel login)
+        public JsonResult Login(LoginModel login)
         {
 
             try
             {
                 var result = this.userManager.loginUser(login);
                 //ViewBag.Message = "logged in successfully";
-                //return View();
+
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var key = Encoding.ASCII.GetBytes(Secret);
                 var tokenDescriptor = new SecurityTokenDescriptor
@@ -79,57 +80,31 @@ namespace BookstoreProject.Controllers
                 };
                 var token = tokenHandler.CreateToken(tokenDescriptor);
                 var tokenString = tokenHandler.WriteToken(token);
-                
+                Session["Token"] = tokenString;
                 ViewBag.Token = tokenString;
                 LoginModel Tokenname = new LoginModel()
                 {
                     Token = tokenString
                 };
-                return this.View("Login", Tokenname);
+                return new JsonResult()
+                {
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                    Data = new { result = "success", Token = tokenString, returnUrl = "https://localhost:44301/Books/GetBooks" }
+                };
+                //return this.View("Login", Tokenname);
                 //RedirectToAction("GetBooks", "Books");
 
             }
             catch (Exception ex)
             {
-                ViewBag.Message = ex;
-                return View();
+                
+                return ViewBag.Message = ex;
             }
         }
 
-
-
-        //public ActionResult GetToken()
-        //{
-        //    var issuer = "self";
-        //    var allowedAudience = "http://localhost";
-        //    var secretKey = new InMemorySymmetricSecurityKey(Encoding.UTF8.GetBytes(Secret));
-        //    var digestAlgorithm = "http://www.w3.org/2001/04/xmldsig-more#hmac-sha256";
-        //    var tokenHandler = new JwtSecurityTokenHandler();
-
-        //    var now = DateTime.UtcNow;
-        //    var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256Signature, digestAlgorithm);
-        //    var claims = new List<Claim>
-        //        {
-        //            new Claim(ClaimTypes.Email, "shireenkk28@gmail.com", ClaimValueTypes.String),
-        //            new Claim(ClaimTypes.Sid, "1",ClaimValueTypes.Integer32),
-        //        };
-        //    var roles = new List<string>() { "Login" };
-        //    claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
-
-        //    var identity = new GenericIdentity("User");
-        //    var tokenDesriptor = new SecurityTokenDescriptor
-        //    {
-        //        Subject = new ClaimsIdentity(identity, (IEnumerable<System.Security.Claims.Claim>)claims),
-        //        TokenIssuerName = issuer,
-        //        AppliesToAddress = allowedAudience,
-        //        Lifetime = new Lifetime(now, now.AddDays(1)),
-        //        SigningCredentials = signinCredentials,
-        //    };
-        //    var token = tokenHandler.WriteToken(tokenHandler.CreateToken(tokenDesriptor));
-
-        //    ViewBag.Token = token;
-        //    return this.View(token);
-
-        //}
+        public ActionResult loginuser(LoginModel userlogin)
+        {
+            return View(userlogin);
+        }
     }
 }
