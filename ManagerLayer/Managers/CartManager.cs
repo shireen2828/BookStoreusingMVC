@@ -22,9 +22,9 @@ namespace ManagerLayer.Managers
             return this.cartRepository.AddToCart(cart, Email);
         }
 
-        public List<GetCartModel> Getcart()
+        public List<GetCartModel> Getcart(string Email)
         {
-            return this.cartRepository.Getcart();
+            return this.cartRepository.Getcart(Email);
         }
     }
 }

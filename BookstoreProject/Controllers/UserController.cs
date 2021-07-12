@@ -12,14 +12,10 @@ namespace BookstoreProject.Controllers
     public class UserController : Controller
     {
         private readonly IUserManager userManager;
-        //private readonly string _secret;
-        //private readonly string _issuer;
         private const string Secret = "my_secret_key_12345";
         public UserController(IUserManager userManager)
         {
             this.userManager = userManager;
-            //_secret = "Thisismysecretkey";
-            //_issuer = "https://localhost:44380";
         }
        
         // GET: User
@@ -75,7 +71,7 @@ namespace BookstoreProject.Controllers
                     new Claim(ClaimTypes.Email, login.Email),
                     new Claim("ServiceType", "User"),
                     }),
-                    Expires = DateTime.UtcNow.AddMinutes(600),
+                    Expires = DateTime.UtcNow.AddMinutes(30),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
                 };
                 var token = tokenHandler.CreateToken(tokenDescriptor);

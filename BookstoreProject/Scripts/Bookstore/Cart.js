@@ -15,3 +15,25 @@ function Continue() {
     var OrderTable = document.getElementById('Order');
     OrderTable.style.display = "block";
 }
+
+function GetCart() {
+    if (sessionStorage.getItem("JwtToken") == null) {
+        window.location.href = 'https://localhost:44309/User/Login';
+    } else {
+        $.ajax({
+            type: "GET",
+            url: 'https://localhost:44309/Cart/GetCart',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + sessionStorage.getItem("JwtToken")
+            },
+            dataType: "json",
+            success: function () {
+               
+            },
+            error: function () {
+                alert("Error");
+            }
+        });
+    }
+}

@@ -81,7 +81,7 @@ namespace RepositoryLayer.Repository
             }
         }
 
-        public List<GetCartModel> Getcart()
+        public List<GetCartModel> Getcart(string Email)
         {
             connection();
             List<GetCartModel> cart = new List<GetCartModel>();

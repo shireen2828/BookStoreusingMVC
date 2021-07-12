@@ -19,15 +19,26 @@ namespace BookstoreProject.Controllers
         // GET: Cart
 
         [HttpGet]
-        public ActionResult Getcart()
+        public ActionResult Getcart(string Email)
         {
             try
             {
-                var result = this.cartManager.Getcart();
+                var identity = User.Identity as ClaimsIdentity;
+
+                if (identity != null)
+                {
+                    IEnumerable<Claim> claims = identity.Claims;
+                    var email = claims.Where(p => p.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress").FirstOrDefault()?.Value;
+
+                    var result = this.cartManager.Getcart(Email);
+                    ViewBag.Message = "retrieved";
+                    return View(result);
+                }
+                var result1 = this.cartManager.Getcart(Email);
                 ViewBag.Message = "retrieved";
-                return View(result);
+                return View(result1);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
