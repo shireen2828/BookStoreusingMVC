@@ -16,7 +16,7 @@ function Continue() {
     OrderTable.style.display = "block";
 }
 
-function GetCart() {
+function Getcart() {
     if (sessionStorage.getItem("JwtToken") == null) {
         window.location.href = 'https://localhost:44309/User/Login';
     } else {
@@ -32,8 +32,16 @@ function GetCart() {
                
             },
             error: function () {
-                alert("Error");
+                //alert("Error");
             }
         });
     }
+}
+
+function increment() {
+    document.getElementById('demoInput').stepUp();
+}
+
+function decrement() {
+    document.getElementById('demoInput').stepDown();
 }

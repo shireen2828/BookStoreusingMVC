@@ -8,7 +8,7 @@
         <h4 class="title1" style="margin-bottom: 30px;font-weight:600;">
             My cart (@Model.Sum(a => a.Quantity))
         </h4>
-        
+
     </div>
     @foreach (var items in Model)
     {
@@ -21,6 +21,13 @@
                 <div class="Author">by @items.Author</div>
                 <div class="Price">Rs. @items.Price</div>
             </div>
+        </div>
+
+
+        <div class="quantity">
+            <button class="decrease" onclick="decrement()">-</button>
+            <input id=demoInput type=number min=0 max=50>
+            <button class="increase" onclick="increment()">+</button>
         </div>
 
     }
